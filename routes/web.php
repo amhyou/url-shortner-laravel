@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UrlController;
+use App\Http\Controllers\GenController;
+use App\Http\Controllers\RediController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/', [GenController::class, 'show']);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/stats/{url}', [UrlController::class, 'show']);
+
+Route::get('/{url}', [RediController::class, 'show']);
