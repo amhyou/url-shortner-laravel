@@ -11,7 +11,6 @@ class UrlController extends Controller
     public function show(string $url): View
     {
         $href = Link::where('short', $url)->first();
-        dump($href);
         return view('url', compact('href'));
     }
 }
