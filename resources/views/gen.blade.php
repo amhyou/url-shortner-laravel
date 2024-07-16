@@ -73,7 +73,10 @@
                 // Handle the response data
                 console.log('Success:', data);
                 // For demo purposes, let's just display the input URL
-                document.getElementById('shortenedUrl').innerText = "http://localhost:8000/"+data.result
+                document.getElementById('shortenedUrl').innerHTML = 
+                    `<a href="https://short.amhyou.com/${data.result}">https://short.amhyou.com/${data.result}</a> 
+                    &nbsp;&nbsp; 
+                    <a href="https://short.amhyou.com/stats/${data.result}">Stats</a>`;
             })
             .catch(error => {
                 // Handle errors
